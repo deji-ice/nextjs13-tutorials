@@ -1,4 +1,5 @@
 import { Todo } from "@/Typings";
+import { notFound } from "next/navigation";
 import React from "react";
 
 type PageProps = {
@@ -6,6 +7,9 @@ type PageProps = {
     todoId: String;
   };
 };
+
+export const dynamicParams = true;
+
 
 const fetchTodo = async (todoId: String) => {
   const res = await fetch(
@@ -20,6 +24,8 @@ const fetchTodo = async (todoId: String) => {
 
 async function TodosPage({ params: { todoId } }: PageProps) {
   const todo = await fetchTodo(todoId);
+
+  if(!todo.id) return notFound()
 
   return (
     <>
