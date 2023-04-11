@@ -21,7 +21,7 @@ const Search = () => {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit" className="py-2 bg-blue-600 rounded-lg px-4 text-white font-bold">Search 🔍  </button>
+      <button type="submit" className="py-2 bg-blue-600 rounded-lg px-4 text-white font-bold">Search 🔍</button>
     </form>
   );
 };
